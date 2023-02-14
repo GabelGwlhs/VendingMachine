@@ -14,7 +14,7 @@ public class Vendor
     private int stock;
     private int deposit;
     private int change;
-    //make a private static double variable called totalSales that has an initial value of 0
+    //make a private static double variable called totalSales that has an initial value of 0 amount of money total sold
     private static double totalSales = 0;
 
     /**
@@ -83,16 +83,17 @@ public class Vendor
     public boolean makeSale()
     {
         //create the makesale method
-        if(stock>0&&price<deposit){
+        if(stock>0&&price<=deposit) {
             stock--;
-            deposit-=price;
-            totalSales++;
+            change=deposit-price;
+            totalSales=totalSales+price/100.0;
             return true;
+        }
             else{
                 return false;
             }
         }
-    }
+
 
     /**
      * Returns and zeroes out the amount of change (from
@@ -112,10 +113,9 @@ public class Vendor
         /*
         note that the coin class has a .getQuarters(), a .getDimes() etc etc (use the coin class!)
         */
-        Coins str = new Coins(deposit);
+        Coins changes = new Coins(change);
 
-        String changeString="Change back is "+deposit+" or "str.getQuarters()+"quarters "+ str.getDimes()+" dimes "+
-        str.getNickles()+" nickles and "+str.getPennies()+" pennies.";
+        String changeString=changes.getQuarters()+"q + "+changes.getDimes()+"d + "+changes.getNickles()+"n + "+changes.getPennies()+"p";
 
         return changeString;
     }
@@ -130,5 +130,6 @@ public class Vendor
     {
         //complete this
         return totalSales;
+
     }
 }
