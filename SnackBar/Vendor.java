@@ -4,7 +4,7 @@ import Number42.Coins;
 
 /**
  * This class implements a vendor that sells one kind
- * of items. A vendor carries out sales transactions.
+ * of items. A vendor carries out sales transactions
  */
 public class Vendor
 {
