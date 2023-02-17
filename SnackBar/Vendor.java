@@ -87,7 +87,9 @@ public class Vendor
             stock--;
             change=deposit-price;
             totalSales=totalSales+price/100.0;
+            deposit = 0;
             return true;
+
         }
             else{
                 return false;
